@@ -1,4 +1,4 @@
-# 说明
+# Description
 
 [android-serialport-api](https://code.google.com/archive/p/android-serialport-api/)
 
@@ -25,22 +25,22 @@ dependencies {
 }
 ```
 
-## 查看串口
+## View serial ports
 
 ``` Java
 SerialPortFinder serialPortFinder = new SerialPortFinder();
 ArrayList<Device> devices = serialPortFinder.getDevices();
 ```
 
-## 打开串口
+## Open serial port
 
-### 初始化
+### Initialization
 
 ``` Java
 mSerialPortManager = new SerialPortManager();
 ```
 
-### 添加打开串口监听
+### Add open serial port listener
 
 ``` Java
 mSerialPortManager.setOnOpenSerialPortListener(new OnOpenSerialPortListener() {
@@ -56,7 +56,7 @@ mSerialPortManager.setOnOpenSerialPortListener(new OnOpenSerialPortListener() {
 });
 ```
 
-### 添加数据通信监听
+### Add data communication listener
 
 ``` Java
 mSerialPortManager.setOnSerialPortDataListener(new OnSerialPortDataListener() {
@@ -72,29 +72,29 @@ mSerialPortManager.setOnSerialPortDataListener(new OnSerialPortDataListener() {
 });
 ```
 
-### 打开串口
+### Open serial port
 
-- 参数1：串口
-- 参数2：波特率
-- 返回：串口打开是否成功
+- Parameter 1：Serial port
+- Parameter 2：Baud rate
+- return：Is the serial port open successfully?
 
 ``` Java
 boolean openSerialPort = mSerialPortManager.openSerialPort(device.getFile(), 115200);
 ```
 
-### 发送数据
+### send data
 
-- 参数：发送数据 byte[]
-- 返回：发送是否成功
+- Parameter：send data byte[]
+- return：Whether the transmission was successful
 
 ``` Java
 boolean sendBytes = mSerialPortManager.sendBytes(sendContentBytes);
 ```
 
-## 关闭串口
+## Close the serial port
 
 ``` Java
 mSerialPortManager.closeSerialPort();
 ```
 
-> PS：传输协议需自行封装
+> PS：The transmission protocol needs to be packaged by itself.
